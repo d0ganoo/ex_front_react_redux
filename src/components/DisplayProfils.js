@@ -2,7 +2,6 @@ import React from 'react'
 
 export const DisplayProfils = ({profils}) => {
     return (
-        <table>
             <tbody>
                 { profils && profils.map(profil => {
                     return (
@@ -15,6 +14,5 @@ export const DisplayProfils = ({profils}) => {
                     )
                 })} 
             </tbody>
-        </table>
     );
 }
