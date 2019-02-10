@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { filtredByLastname } from '../actions'
+import {bindActionCreators} from 'redux'
 
 export class SortProfils extends Component {
   render() { 
-    const {profils} = this.props;
+    const {profils, filtredByLastname} = this.props;
+    console.log("sort = "+ profils);
     return (
       <thead>
         <tr>
@@ -21,7 +23,7 @@ export class SortProfils extends Component {
 const mapStateToProps = (state) => ({profils: state.profils})
 
 const mapDispatchToProps = (dispatch) =>{
-  dispatch(filtredByLastname())
+  return bindActionCreators({filtredByLastname:filtredByLastname}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SortProfils)

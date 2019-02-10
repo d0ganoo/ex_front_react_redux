@@ -8,24 +8,26 @@ import "../css/style.css"
 
 class App extends Component {
   render() {
-    const {profils} = this.props;
+    const {profils, profilsFiltered} = this.props;
+    console.log(profils);
+    console.log(profilsFiltered);
     return (
       <div>
         <h1>Listes des profils</h1>
         <FiltredProfils/>
         <table>
-          <SortProfils/>
-          <DisplayProfils profils={profils}/>
+          <SortProfils profils={profilsFiltered !== undefined ? profilsFiltered.profils : profils}/>
+          <DisplayProfils profils={profilsFiltered !== undefined ? profilsFiltered.profilsFiltered : profils}/>
         </table>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({profils: state.profils})
+const mapStateToProps = (state) => ({profils: state.profils, profilsFiltered:state.profilsFiltered })
 
-const mapDispatchToProps = (dispatch) => (
+function mapDispatchToProps(dispatch){
      dispatch(fetchProfils())
-)
+}
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)
