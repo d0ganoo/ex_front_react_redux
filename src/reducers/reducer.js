@@ -7,7 +7,10 @@ const reducer = (state = {}, action) => {
        return { profils: action.profils };
     case GET_BY_LASTNAME:
     console.log("GET_BY_LASTNAME");
-        return { profilsFiltered: action.profilsFiltered };
+        return { 
+                profilsFiltered: action.profilsFiltered,
+                profilsNew: action.profilsNew
+             };
     default:
        return state;
   }

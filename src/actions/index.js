@@ -25,7 +25,8 @@ export function fetchProfils(){
 
 export const getProfilsFiltered = (profils, profilsFiltered) => ({
     type:GET_BY_LASTNAME,
-    profilsFiltered:{profilsFiltered,profils}
+    profilsFiltered:profilsFiltered,
+    profilsNew:profils
 });
 
 export function sortAsc(profils, name){
