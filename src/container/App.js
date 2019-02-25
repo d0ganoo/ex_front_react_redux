@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchProfils } from '../actions'
-import { DisplayProfils } from '../components/DisplayProfils.js'
+import SortProfils from './SortProfils'
+import FiltredProfils from './FiltredProfils'
+import "../css/style.css"
 
 class App extends Component {
   render() {
@@ -9,16 +11,17 @@ class App extends Component {
     return (
       <div>
         <h1>Listes des profils</h1>
-        <DisplayProfils profils={profils}/>
+        <FiltredProfils/>
+        <SortProfils profils={profils}/>
       </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({profils: state.profils})
+const mapStateToProps = (state) => ({profils: state.profils })
 
-const mapDispatchToProps = (dispatch) => (
+function mapDispatchToProps(dispatch){
      dispatch(fetchProfils())
-)
+}
 
 export default connect(mapStateToProps,mapDispatchToProps)(App)
