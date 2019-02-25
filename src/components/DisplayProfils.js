@@ -2,7 +2,7 @@ import React from 'react'
 
 export const DisplayProfils = ({profils}) => {
     return (
-            <tbody>
+        <React.Fragment>
                 { profils && profils.map(profil => {
                     return (
                         <tr key={profil.id}>
@@ -13,6 +13,6 @@ export const DisplayProfils = ({profils}) => {
                         </tr>   
                     )
                 })} 
-            </tbody>
+        </React.Fragment>
     );
 }
