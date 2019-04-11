@@ -6,7 +6,7 @@ export const getProfils = res => ({
     profils: res,
     });
 
-export function fetchProfils(){
+export const fetchProfils = () =>{
     return function (dispatch) {
         return fetch(PROFILS_URL)
         .then(
